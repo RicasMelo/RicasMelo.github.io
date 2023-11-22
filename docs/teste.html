@@ -40,6 +40,8 @@
         const cube = new THREE.Mesh(geometry, material);
         scene.add(cube);
 
+        const button = ARButton.createButton(renderer)
+        document.body.appendChild(button);
         // Render loop
         const animate = () => {
             requestAnimationFrame(animate);
