@@ -9,6 +9,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Define a route for the root URL ("/")
 app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+// Define a route for the root URL ("/")
+app.get('/teste', (req, res) => {
     res.sendFile(path.join(__dirname, 'teste.html'));
 });
 
