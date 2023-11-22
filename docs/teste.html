@@ -8,7 +8,7 @@
         body {
             margin: 0;
         }
-        
+
         canvas {
             display: block;
         }
@@ -17,10 +17,8 @@
 
 <body>
     <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
-    <script>
-        import {
-            ARButton
-        } from "https://cdn.rawgit.com/mrdoob/three.js/r117/examples/jsm/webxr/ARButton.js"
+    <script type="module">
+        import { ARButton } from "https://cdn.rawgit.com/mrdoob/three.js/r117/examples/jsm/webxr/ARButton.js";
         console.log(ARButton);
         // Create a scene
         const scene = new THREE.Scene();
