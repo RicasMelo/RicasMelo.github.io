@@ -1,5 +1,5 @@
 import * as THREE from '../../libs/three/three.module.js';
-import { VRButton } from '../../libs/three/jsm/VRButton.js';
+import { ARButton } from '../../libs/three/jsm/VRButton.js';
 import { BoxLineGeometry } from '../../libs/three/jsm/BoxLineGeometry.js';
 import { Stats } from '../../libs/three/jsm/stats.module.js';
 import { OrbitControls } from '../../libs/three/jsm/OrbitControls.js';
@@ -38,7 +38,7 @@ class App {
         container.appendChild(this.stats.dom);
 
         this.initScene();
-        this.setupVR();
+        this.setupAR();
 
         window.addEventListener('resize', this.resize.bind(this));
 
@@ -74,9 +74,9 @@ class App {
         }
     }
 
-    setupVR() {
+    setupAR() {
         this.renderer.xr.enabled = true;
-        document.body.appendChild(VRButton.createButton(this.renderer));
+        document.body.appendChild(ARButton.createButton(this.renderer));
     }
 
     resize() {
