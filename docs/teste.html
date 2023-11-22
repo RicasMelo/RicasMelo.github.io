@@ -30,6 +30,7 @@
         // Create a renderer
         const renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.xr.enabled = true;
         document.body.appendChild(renderer.domElement);
 
         // Create a cube
