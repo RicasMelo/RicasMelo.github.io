@@ -11,10 +11,6 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'docs', 'index.html'));
 });
 
-// Route for '/teste'
-app.get('/teste', (req, res) => {
-    res.sendFile(path.join(__dirname, 'docs', 'teste.html'));
-});
 
 // Route for '/teste'
 app.get('/ivid', (req, res) => {
