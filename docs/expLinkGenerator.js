@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Get all files in the directory
     const files = [
-      "expteste.html", // Replace these with actual filenames
+      "expteste.html" // Replace these with actual filenames
       // Add other filenames as needed
     ];
   
