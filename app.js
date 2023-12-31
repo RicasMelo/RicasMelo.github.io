@@ -21,6 +21,12 @@ app.get('/ivid', (req, res) => {
     res.sendFile(path.join(__dirname, 'docs', 'ivid.html'));
 });
 
+// Route for '/list'
+app.get('/list', (req, res) => {
+    res.sendFile(path.join(__dirname, 'docs', 'list.html'));
+});
+
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
