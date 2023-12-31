@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+</head>
+<body>
+  <a-scene>
+    <!-- Assets section to preload the GLTF model -->
+    <a-assets>
+      <a-asset-item id="model" src="path/to/your/model.gltf"></a-asset-item>
+    </a-assets>
+
+    <!-- Camera and scene environment -->
+    <a-entity position="0 1.6 0">
+      <a-camera></a-camera>
+    </a-entity>
+
+    <!-- The 3D object -->
+    <a-entity gltf-model="#model" position="0 0 -5"></a-entity>
+    
+    <!-- Ground/floor -->
+    <a-plane position="0 0 0" rotation="-90 0 0" width="100" height="100" color="#7BC8A4"></a-plane>
+  </a-scene>
+</body>
+</html>
