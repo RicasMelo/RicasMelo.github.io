@@ -1,26 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <title>A-Frame AR with GLTF</title>
-  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-  <script src="https://aframe.io/releases/1.5.0/aframe-ar.js"></script>
+  <title>AR 3D Model</title>
+  <script src="https://aframe.io/releases/1.96.0/aframe.min.js"></script>
+  <script src="https://aframe.io/releases/1.96.0/ar.js"></script>
 </head>
 <body>
-  <a-scene embedded arjs>
-    <a-entity id="model">
-      <a-gltf-model src="models/gift.gltf"></a-gltf-model>
-    </a-entity>
+  <a-scene>
+    <a-marker preset="hiro">
+      <a-entity gltf-model="models/gift.gltf" position="0 0 0" scale="0.1 0.1 0.1"></a-entity>
+    </a-marker>
   </a-scene>
-
-  <script>
-    // Initialize AR.js
-    arjs.config({
-      tracking: true,
-      lightEstimation: true
-    });
-
-    // Attach the AR scene to the document
-    arjs.registerARExperience();
-  </script>
 </body>
 </html>
