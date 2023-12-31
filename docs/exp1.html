@@ -1,15 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AR 3D Model</title>
-  <script src="https://aframe.io/releases/1.96.0/aframe.min.js"></script>
-  <script src="https://aframe.io/releases/1.96.0/ar.js"></script>
+  <title>WebXR AR</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/14.0.4/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/threexr/0.9.2/threexr.js"></script>
 </head>
 <body>
-  <a-scene>
-    <a-marker preset="hiro">
-      <a-entity gltf-model="models/gift.gltf" position="0 0 0" scale="0.1 0.1 0.1"></a-entity>
-    </a-marker>
-  </a-scene>
+  <canvas id="arCanvas" style="display: block; width: 100vw; height: 100vh"></canvas>
+
+  <script>
+    const canvas = document.getElementById('arCanvas');
+    const renderer = new THREE.WebGLRenderer({ canvas });
+
+    const XRSession = THREExr.XRSession;
+    const xrSession = new XRSession({ canvas });
+
+    const scene = new THREE.Scene();
+
+    const camera = new THREE.PerspectiveCamera(75, canvas.width / canvas.height, 0.1, 1000);
+    camera.position.set(0, 1.5, 3);
+    scene.add(camera);
+
+    const loader = new THREE.GLTFLoader();
+    loader.load('bunny.gltf', (gltf) => {
+      const model = gltf.scene;
+      model.position.set(0, 0, 0);
+      scene.add(model);
+    });
+
+    const arHandler = new XRSession.ARPlaneHandler(xrSession);
+    arHandler.on('hit', (event) => {
+      const hit = event.hit;
+      console.log('Hit', hit.position, hit.normal);
+
+      const model = gltf.scene;
+      model.position.set(hit.position);
+      model.rotation.setFromEuler(new THREE.Vector3(0, 0, Math.PI / 2));
+      scene.add(model);
+    });
+
+    xrSession.start();
+
+    const animate = () => {
+      requestAnimationFrame(animate);
+
+      xrSession.update();
+
+      renderer.render(scene, camera);
+    };
+
+    animate();
+  </script>
 </body>
 </html>
