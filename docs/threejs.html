@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Three.js Cube Example - AR with ARButton</title>
+    <title>Three.js Cube Example</title>
     <style>
         body {
             margin: 0;
@@ -18,10 +18,8 @@
 <body>
     <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
     <script>
-        // Import the ARButton module
-        import { ARButton } from 'three/addons/webxr/VRButton.js';
-
         // Create a scene
+        import { ARButton } from 'three/addons/webxr/ARButton.js';
         const scene = new THREE.Scene();
 
         // Create a camera
@@ -32,6 +30,9 @@
         const renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
+        
+        document.body.appendChild( ARButton.createButton( renderer ) );
+        renderer.xr.enabled = true;
 
         // Create a cube
         const geometry = new THREE.BoxGeometry();
@@ -41,32 +42,17 @@
         const cube = new THREE.Mesh(geometry, material);
         scene.add(cube);
 
-        // Create the ARButton
-        document.body.appendChild(ARButton.createButton(renderer));
+        // Render loop
+        const animate = () => {
+            requestAnimationFrame(animate);
 
-        // Enable immersive-ar mode
-        renderer.xr.enabled = true;
-        renderer.setAnimationLoop(() => {
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
+
             renderer.render(scene, camera);
-        });
+        };
 
-        // Handle AR session start
-        const xrSession = renderer.xr.session;
-        xrSession.addEventListener('sessionstart', () => {
-            // Place the cube in AR space
-            const raycaster = new THREE.Raycaster(camera.position, camera.direction);
-            const intersects = raycaster.intersectObjects(scene.children);
-
-            if (intersects.length > 0) {
-                const intersection = intersects[0];
-                const arObject = new THREE.Object3D();
-                arObject.add(cube);
-                scene.add(arObject);
-
-                // Position the AR object at the intersection point
-                arObject.position.copy(intersection.point);
-            }
-        });
+        animate();
     </script>
 </body>
 
