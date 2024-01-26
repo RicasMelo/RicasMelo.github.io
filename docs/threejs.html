@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Three.js Cube Example (AR)</title>
+    <title>Three.js Cube Example - AR with ARButton</title>
     <style>
         body {
             margin: 0;
         }
-
+        
         canvas {
             display: block;
         }
@@ -17,9 +17,10 @@
 
 <body>
     <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
-    <script src="https://unpkg.com/three@^0.132.2/examples/jsm/webxr/WebXR.js"></script>
-
     <script>
+        // Import the ARButton module
+        import { ARButton } from 'three/addons/webxr/VRButton.js';
+
         // Create a scene
         const scene = new THREE.Scene();
 
@@ -28,73 +29,44 @@
         camera.position.z = 5;
 
         // Create a renderer
-        const renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.xr.enabled = true;
+        const renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
-        // Initialize AR capabilities
-        const xrManager = new THREE.WebXRManager();
-        xrManager.setSessionInit({
-            domElement: renderer.domElement,
-            requiredFeatures: ["dom-access"] // Enable access to DOM elements for AR placement
-        });
-
-        // Check if AR is supported by the browser
-        if (!xrManager.isSupported) {
-            console.error("WebXR is not supported by this browser.");
-            return;
-        }
-
-        // Wait for AR session to be initialized
-        xrManager.addEventListener("sessionstart", (event) => {
-            console.log("AR session started.");
-
-            // Set the renderer to use the AR session's camera
-            renderer.xr.setDevice(event.session);
-            renderer.setAnimationLoop(() => {
-                // Update the AR scene
-                updateARScene();
-
-                // Render the scene
-                renderer.render(scene, camera);
-            });
-        });
-
-        // Create a cube geometry
+        // Create a cube
         const geometry = new THREE.BoxGeometry();
-
-        // Create a cube material
         const material = new THREE.MeshBasicMaterial({
-            color: 0x00ff00 // Green color
-        });
-
-        // Create a cube object
+            color: 0x00ff00
+        }); // Green color
         const cube = new THREE.Mesh(geometry, material);
-        // Add the cube to the scene
         scene.add(cube);
 
-        // Function to update the AR scene
-        function updateARScene() {
-            // Check if the AR session is still active
-            if (!xrManager.isSessionActive) {
-                return;
+        // Create the ARButton
+        document.body.appendChild(ARButton.createButton(renderer));
+
+        // Enable immersive-ar mode
+        renderer.xr.enabled = true;
+        renderer.setAnimationLoop(() => {
+            renderer.render(scene, camera);
+        });
+
+        // Handle AR session start
+        const xrSession = renderer.xr.session;
+        xrSession.addEventListener('sessionstart', () => {
+            // Place the cube in AR space
+            const raycaster = new THREE.Raycaster(camera.position, camera.direction);
+            const intersects = raycaster.intersectObjects(scene.children);
+
+            if (intersects.length > 0) {
+                const intersection = intersects[0];
+                const arObject = new THREE.Object3D();
+                arObject.add(cube);
+                scene.add(arObject);
+
+                // Position the AR object at the intersection point
+                arObject.position.copy(intersection.point);
             }
-
-            // Get the current frame data from the AR session
-            const frameData = xrManager.getFrameData();
-
-            // Get the camera pose from the AR frame data
-            const cameraPose = frameData.cameraPose.transform.matrix;
-
-            // Set the cube's position and rotation based on the camera pose
-            cube.position.set(cameraPose.elements[12], cameraPose.elements[13], cameraPose.elements[14]);
-            cube.rotation.set(
-                cameraPose.elements[0],
-                cameraPose.elements[1],
-                cameraPose.elements[2]
-            );
-        }
+        });
     </script>
 </body>
 
