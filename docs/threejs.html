@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Three.js Cube Example (AR)</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://unpkg.com/three@^0.132.2/examples/jsm/webxr/WebXR.js"></script>
+
+    <script>
+        // Create a scene
+        const scene = new THREE.Scene();
+
+        // Create a camera
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.z = 5;
+
+        // Create a renderer
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.xr.enabled = true;
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Initialize AR capabilities
+        const xrManager = new THREE.WebXRManager();
+        xrManager.setSessionInit({
+            domElement: renderer.domElement,
+            requiredFeatures: ["dom-access"] // Enable access to DOM elements for AR placement
+        });
+
+        // Check if AR is supported by the browser
+        if (!xrManager.isSupported) {
+            console.error("WebXR is not supported by this browser.");
+            return;
+        }
+
+        // Wait for AR session to be initialized
+        xrManager.addEventListener("sessionstart", (event) => {
+            console.log("AR session started.");
+
+            // Set the renderer to use the AR session's camera
+            renderer.xr.setDevice(event.session);
+            renderer.setAnimationLoop(() => {
+                // Update the AR scene
+                updateARScene();
+
+                // Render the scene
+                renderer.render(scene, camera);
+            });
+        });
+
+        // Create a cube geometry
+        const geometry = new THREE.BoxGeometry();
+
+        // Create a cube material
+        const material = new THREE.MeshBasicMaterial({
+            color: 0x00ff00 // Green color
+        });
+
+        // Create a cube object
+        const cube = new THREE.Mesh(geometry, material);
+        // Add the cube to the scene
+        scene.add(cube);
+
+        // Function to update the AR scene
+        function updateARScene() {
+            // Check if the AR session is still active
+            if (!xrManager.isSessionActive) {
+                return;
+            }
+
+            // Get the current frame data from the AR session
+            const frameData = xrManager.getFrameData();
+
+            // Get the camera pose from the AR frame data
+            const cameraPose = frameData.cameraPose.transform.matrix;
+
+            // Set the cube's position and rotation based on the camera pose
+            cube.position.set(cameraPose.elements[12], cameraPose.elements[13], cameraPose.elements[14]);
+            cube.rotation.set(
+                cameraPose.elements[0],
+                cameraPose.elements[1],
+                cameraPose.elements[2]
+            );
+        }
+    </script>
+</body>
+
+</html>
