@@ -27,6 +27,12 @@ app.get('/threejs', (req, res) => {
     res.sendFile(path.join(__dirname, 'docs', 'threejs.html'));
 });
 
+// Route for '/threejs'
+app.get('/webxrMarker', (req, res) => {
+    res.sendFile(path.join(__dirname, 'docs', 'webxrMarker.html'));
+});
+
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
