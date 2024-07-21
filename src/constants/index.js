@@ -9,33 +9,51 @@ export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer w
 
 export const EXPERIENCES = [
   {
-    year: "2023 - Present",
-    role: "Senior Full Stack Developer",
-    company: "Google Inc.",
-    description: `Led a team in developing and maintaining web applications using JavaScript, React.js, and Node.js. Implemented RESTful APIs and integrated with MongoDB databases. Collaborated with stakeholders to define project requirements and timelines.`,
-    technologies: ["Javascript", "React.js", "Next.js", "mongoDB"],
+    year: "2019 - Presente",
+    role: "Mestrado Integrado em Engenharia e Gestão de Sistemas de Informação",
+    company: "Universidade do Minho, Braga",
+    description: `Média Atual: 16,8`
   },
   {
-    year: "2022 - 2023",
-    role: "Frontend Developer",
-    company: "Adobe",
-    description: `Designed and developed user interfaces for web applications using Next.js and React. Worked closely with backend developers to integrate frontend components with Node.js APIs. Implemented responsive designs and optimized frontend performance.`,
-    technologies: ["HTML", "CSS", "Vue.js", "mySQL"],
+    year: "2024 - Presente",
+    role: "Investigador do Centro ALGORITMI",
+    company: "Universidade do Minho, Braga",
+    description: `Desenvolvimento de pesquisas na área da Realidade Aumentada e participação na 19ª Conferência Ibérica de Sistemas e Tecnologias
+de Informação`
+  }
+];
+
+export const ACADEMICS =[
+  {
+    context: "UC - Paradigmas de Programação",
+    projet: "Projeto: Sistema de Gestão Hospitalar",
+    description: `Desenvolvi uma aplicação informática com o objetivo de gerir diversos aspectos de um hospital, incluindo enfermarias, equipamentos, profissionais de saúde e pacientes. A aplicação foi projetada para oferecer funcionalidades essenciais, como autenticação de utilizadores, adição e exclusão de utilizadores, gestão de dados hospitalares e a visualização de dashboards informativas. Para implementar essas funcionalidades, utilizei programação orientada a objetos, empregando a linguagem Java e a plataforma NetBeans.`,
+    technologies: ["Java", "NetBeans"],
   },
   {
-    year: "2021 - 2022",
-    role: "Full Stack Developer",
-    company: "Facebook",
-    description: `Developed and maintained web applications using JavaScript, React.js, and Node.js. Designed and implemented RESTful APIs for data communication. Collaborated with cross-functional teams to deliver high-quality software products on schedule.`,
-    technologies: ["Python", "Svelte", "Three.js", "Postgres"],
+    context: "UC - Programação para a WEB",
+    projet: "Projeto: Aplicação Web para Gestão de Operações",
+    description: "Adotei o conceito de REST para garantir uma clara separação entre cliente e servidor na aplicação. No front-end, utilizei HTML, CSS e JavaScript para o desenvolvimento da interface do utilizador. Para o back-end, empreguei Node.js para o desenvolvimento do servidor e Express.js para a construção de APIs RESTful. Esta experiência permitiu-me aplicar conceitos teóricos a problemas reais e trabalhar em colaboração com uma equipa para alcançar objetivos comuns.",
+    technologies: ["HTML", "CSS", "SQL", "JavaScript"],
   },
   {
-    year: "2020 - 2021",
-    role: "Software Engineer",
-    company: "Paypal",
-    description: `Contributed to the development of web applications using JavaScript, React.js, and Node.js. Managed databases and implemented data storage solutions using MongoDB. Worked closely with product managers to prioritize features and enhancements.`,
-    technologies: ["Ruby", "Rails", "PHP", "Sqlite"],
+    context: "Engenharia de Dados para Suporte à Tomada de Decisão",
+    projet: "Projeto: Implementação de um Data Lakehouse",
+    description: `Realizei a identificação de conjuntos de dados em diversos formatos, incluindo CSV, JSON e TEXT, e analisei casos de uso, questões analíticas e métricas associadas a esses dados. Para avaliar a qualidade dos dados, utilizei o Talend Open Studio. A manipulação dos dados foi realizada através da implementação de tecnologias como HDFS, Hive, Talend Big Data, Spark e Jupyter. Além disso, empreguei a linguagem Python para executar processos de Extração, Carregamento e Transformação (ELT) dos dados.`,
+    technologies: ["Python", "ELT"],
   },
+  {
+    context: "Desenvolvimento Organizacional com Tecnologias da Informação",
+    projet: "Projeto: Simulação Empresarial em Tecnologia da Informação (TI)",
+    description: `Esta cadeira permitiu uma compreensão abrangente do Desenvolvimento Organizacional com Tecnologias da Informação, particularmente no que respeita ao processo e respetivas fases, atividades, técnicas, ferramentas e resultados. Foi possível a definição e participação em processos de desenvolvimento organizacional através da adoção de TI. Elaboração de relatórios técnicos para diferentes fases do DOTI.`,
+    technologies: ["DTC", "Organizagrama"],
+  },
+  {
+    context: "Gestão de Projetos em Tecnologias e Sistemas de Informação",
+    projet: "Projeto: Simulação Empresarial em Gestão de Projetos",
+    description: `Exercício de atividades de gestão de projetos, particularmente em projetos de tecnologias e sistemas de informação. Domínio de conceitos e técnicas utilizadas em diferentes fases de um projeto. Desenvolvimento de relações interpessoais, quer na perspetiva de relações entre elementos de uma mesma equipa de trabalho, quer na perspetiva da relação entre o gestor de projeto e o cliente.`,
+    technologies: ["GanttProject"],
+  }
 ];
 
 export const PROJECTS = [

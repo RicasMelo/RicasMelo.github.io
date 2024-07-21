@@ -4,6 +4,7 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Technologies from "./components/Technologies";
 import Experience from "./components/Experience";
+import Academic from "./components/Academic";
 
 const App = () => {
   return (
@@ -15,9 +16,9 @@ const App = () => {
       <div className="container mx-auto px-8">
         <Navbar />
         <Hero />
-        <About />
-        <Technologies />
         <Experience />
+        <Technologies />
+        <Academic />
       </div>
     </div>
   );
