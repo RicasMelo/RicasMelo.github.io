@@ -18,6 +18,7 @@ const Hero = () => {
             </p>
           </div>
         </div>
+        {/* to put logo image in the right place change line 22 elements: <  lg:pl & lg:max-w-[ rem]  > */}
         <div className="w-full lg:w-1/2 lg:p-2  lg:pl-40 lg:max-w-[40rem]">
           <div className="flex justify-center flex-col items-center">
             <img
