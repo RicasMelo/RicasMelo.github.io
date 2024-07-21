@@ -37,19 +37,19 @@ export const ACADEMICS =[
     technologies: ["HTML", "CSS", "SQL", "JavaScript"],
   },
   {
-    context: "Engenharia de Dados para Suporte à Tomada de Decisão",
+    context: "UC - Engenharia de Dados para Suporte à Tomada de Decisão",
     projet: "Projeto: Implementação de um Data Lakehouse",
     description: `Realizei a identificação de conjuntos de dados em diversos formatos, incluindo CSV, JSON e TEXT, e analisei casos de uso, questões analíticas e métricas associadas a esses dados. Para avaliar a qualidade dos dados, utilizei o Talend Open Studio. A manipulação dos dados foi realizada através da implementação de tecnologias como HDFS, Hive, Talend Big Data, Spark e Jupyter. Além disso, empreguei a linguagem Python para executar processos de Extração, Carregamento e Transformação (ELT) dos dados.`,
     technologies: ["Python", "ELT"],
   },
   {
-    context: "Desenvolvimento Organizacional com Tecnologias da Informação",
+    context: "UC - Desenvolvimento Organizacional com Tecnologias da Informação",
     projet: "Projeto: Simulação Empresarial em Tecnologia da Informação (TI)",
     description: `Esta cadeira permitiu uma compreensão abrangente do Desenvolvimento Organizacional com Tecnologias da Informação, particularmente no que respeita ao processo e respetivas fases, atividades, técnicas, ferramentas e resultados. Foi possível a definição e participação em processos de desenvolvimento organizacional através da adoção de TI. Elaboração de relatórios técnicos para diferentes fases do DOTI.`,
     technologies: ["DTC", "Organizagrama"],
   },
   {
-    context: "Gestão de Projetos em Tecnologias e Sistemas de Informação",
+    context: "UC - Gestão de Projetos em Tecnologias e Sistemas de Informação",
     projet: "Projeto: Simulação Empresarial em Gestão de Projetos",
     description: `Exercício de atividades de gestão de projetos, particularmente em projetos de tecnologias e sistemas de informação. Domínio de conceitos e técnicas utilizadas em diferentes fases de um projeto. Desenvolvimento de relações interpessoais, quer na perspetiva de relações entre elementos de uma mesma equipa de trabalho, quer na perspetiva da relação entre o gestor de projeto e o cliente.`,
     technologies: ["GanttProject"],
