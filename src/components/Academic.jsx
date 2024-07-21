@@ -1,15 +1,26 @@
 import { ACADEMICS } from "../constants";
+import { motion } from "framer-motion";
 
 const Academic = () => {
   return (
     <div className="border-b border-neutral-900 pb-4">
-      <h1 className="my-20 text-center text-4xl">
+      <motion.h1
+        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: -100 }}
+        transition={{ duration: 1.5 }}
+        className="my-20 text-center text-4xl"
+      >
         Relevância Académica e Habilidades Adquiridas
-      </h1>
+      </motion.h1>
       <div>
         {ACADEMICS.map((experience, index) => (
           <div key={index} className="mb-8 flex flex-wrap lg:justify-center">
-            <div className="w-full max-w-[50rem]">
+            <motion.div
+              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: -100 }}
+              transition={{ duration: 1.5 }}
+              className="w-full max-w-[50rem]"
+            >
               <p className="mb-2 text-sm text-neutral-400">
                 {experience.context}
               </p>
@@ -25,7 +36,7 @@ const Academic = () => {
                   {tech}
                 </span>
               ))}
-            </div>
+            </motion.div>
           </div>
         ))}
       </div>
