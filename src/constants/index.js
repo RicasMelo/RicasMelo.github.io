@@ -88,7 +88,8 @@ export const PROJECTS = [
 ];
 
 export const CONTACT = {
-  address: "767 Fifth Avenue, New York, NY 10153 ",
-  phoneNo: "+12 4555 666 00 ",
-  email: "me@example.com",
+  address: "Rua Nossa Senhora de Fátima nº90, Lagares, Felgueiras",
+  phoneNo: "+351 919117062",
+  email: "ricardojunio10@gmail.com",
+  linkedin: "www.linkedin.com/in/ric3melo"
 };

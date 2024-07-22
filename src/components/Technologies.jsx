@@ -1,9 +1,9 @@
-import { RiReactjsLine } from "react-icons/ri";
-import { TbBrandNextjs } from "react-icons/tb";
-import { SiMongodb } from "react-icons/si";
-import { DiRedis } from "react-icons/di";
+import { FaUnity } from "react-icons/fa";
+import { FaJava } from "react-icons/fa";
+import { RiJavascriptFill } from "react-icons/ri";
+import { FaPython } from "react-icons/fa";
 import { FaNodeJs } from "react-icons/fa";
-import { BiLogoPostgresql } from "react-icons/bi";
+import { TbBrandCSharp } from "react-icons/tb";
 import { animate, motion } from "framer-motion";
 
 const iconVariants = (duration) => ({
@@ -28,7 +28,7 @@ const Technologies = () => {
         transition={{ duration: 1.5 }}
         className="my-20 text-center text-4xl"
       >
-        Technologies
+        Competências Técnicas
       </motion.h1>
       <motion.div
         whileInView={{ opacity: 1, x: 0 }}
@@ -42,7 +42,7 @@ const Technologies = () => {
           animate="animate"
           className="rounded-2xl border-4 border-neutral-800 p-4"
         >
-          <RiReactjsLine className="text-7xl text-cyan-200" />
+          <FaUnity className="text-7xl text-cyan-200" />
         </motion.div>
         <motion.div
           variants={iconVariants(3)}
@@ -50,7 +50,7 @@ const Technologies = () => {
           animate="animate"
           className="rounded-2xl border-4 border-neutral-800 p-4"
         >
-          <TbBrandNextjs className="text-7xl text-cyan-200" />
+          <FaJava className="text-7xl text-cyan-200" />
         </motion.div>
         <motion.div
           variants={iconVariants(4)}
@@ -58,7 +58,7 @@ const Technologies = () => {
           animate="animate"
           className="rounded-2xl border-4 border-neutral-800 p-4"
         >
-          <SiMongodb className="text-7xl text-cyan-200" />
+          <RiJavascriptFill className="text-7xl text-cyan-200" />
         </motion.div>
         <motion.div
           variants={iconVariants(4.3)}
@@ -66,7 +66,7 @@ const Technologies = () => {
           animate="animate"
           className="rounded-2xl border-4 border-neutral-800 p-4"
         >
-          <DiRedis className="text-7xl text-cyan-200" />
+          <FaPython className="text-7xl text-cyan-200" />
         </motion.div>
         <motion.div
           variants={iconVariants(3.2)}
@@ -82,7 +82,7 @@ const Technologies = () => {
           animate="animate"
           className="rounded-2xl border-4 border-neutral-800 p-4"
         >
-          <BiLogoPostgresql className="text-7xl text-cyan-200" />
+          <TbBrandCSharp className="text-7xl text-cyan-200" />
         </motion.div>
       </motion.div>
     </div>

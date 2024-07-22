@@ -22,7 +22,7 @@ const Hero = () => {
               transition={{ duration: 1.5, delay: 0.5 }}
               className="bg-gradient-to-r from-blue-300 via-slate-500 to-blue-500 bg-clip-text text-3xl tracking-tight text-transparent"
             >
-              About Me
+              Sobre Mim
             </motion.span>
             <motion.p
               initial={{ x: -100, opacity: 0 }}
@@ -41,7 +41,7 @@ const Hero = () => {
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1.5, delay: 1.2 }}
-              className="rounded-2xl"
+              className="rounded-[50rem]"
               src={profilePic}
               alt="profilePic"
             ></motion.img>
