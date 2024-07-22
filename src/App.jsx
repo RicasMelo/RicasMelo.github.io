@@ -19,10 +19,12 @@ const App = () => {
         <section id="hero">
           <Hero />
         </section>
-        <section id="experience">
+        <div id="experience"></div>
+        <section>
           <Experience />
         </section>
-        <section id="technologies">
+        <div id="technologies"></div>
+        <section>
           <Technologies />
         </section>
         <section id="academic">
