@@ -27,7 +27,8 @@ const App = () => {
         <section>
           <Technologies />
         </section>
-        <section id="academic">
+        <div id="academic"></div>
+        <section>
           <Academic />
         </section>
         <section id="contact">
